@@ -40,9 +40,7 @@ async function fetchPage() {
     }
     const totalPages = searchResponse.totalHits / PER_PAGE;
     hasMorePages = totalPages > page;
-    if (hasMorePages) {
-      page += 1;
-    } else {
+    if (!hasMorePages) {
       iziToast.error({
         message: "We're sorry, but you've reached the end of search results.",
         position: 'topRight',
@@ -79,5 +77,6 @@ form.addEventListener('submit', e => {
 });
 
 loadMoreButton.addEventListener('click', () => {
+  page += 1;
   fetchPage();
 });
