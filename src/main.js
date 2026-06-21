@@ -17,7 +17,6 @@ let hasMorePages = false;
 
 const form = document.querySelector('.form');
 const loadMoreButton = document.querySelector('.load-more-button');
-const endOfCollection = document.querySelector('.end-of-collection');
 
 async function fetchPage() {
   showLoader();
