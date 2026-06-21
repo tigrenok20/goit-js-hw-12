@@ -40,7 +40,7 @@ async function fetchPage() {
     }
     const totalPages = searchResponse.totalHits / PER_PAGE;
     hasMorePages = totalPages > page;
-    if (!hasMorePages) {
+    if (searchResponse.hits.length === 0 || !hasMorePages) {
       iziToast.error({
         message: "We're sorry, but you've reached the end of search results.",
         position: 'topRight',
